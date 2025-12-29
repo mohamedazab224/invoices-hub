@@ -1,0 +1,156 @@
+Folder PATH listing for volume Alazab.Go
+Volume serial number is 36B8-2E30
+A:.
+│   .env
+│   .gitignore
+│   create_all_files.sh
+│   DEPLOYMENT_GUIDE.md
+│   package-lock.json
+│   package.json
+│   README.md
+│   START_HERE.md
+│   SYSTEM_SUMMARY.md
+│   tree.txt
+│   
+├───api
+│   │   server.js
+│   │   
+│   ├───controllers
+│   ├───integrations
+│   │       daftra.js
+│   │       magicplan.js
+│   │       
+│   ├───middleware
+│   │       auth.js
+│   │       
+│   ├───models
+│   ├───routes
+│   │       auth.js
+│   │       client.js
+│   │       dashboard.js
+│   │       invoices.js
+│   │       projects.js
+│   │       reviews.js
+│   │       sync-routes.js
+│   │       
+│   └───utils
+│           daftra-pdf-downloader.js
+│           dataStore.js
+│           storage-manager.js
+│           
+├───data
+│   │   .gitkeep
+│   │   audit-logs.json
+│   │   invoices.json
+│   │   projects.json
+│   │   reviews.json
+│   │   sample-invoice.html
+│   │   users.json
+│   │   
+│   ├───audit-logs
+│   ├───invoices
+│   ├───projects
+│   │       Alex-Luran-AZ-INV-2025-0143.pdf
+│   │       Banha-Villas-AZ-INV-2025-0131.pdf
+│   │       Mansoura-Almashay-AZ-INV-2025-0141.pdf
+│   │       Mansoura-Altirea-AZ-INV-2025-0142.pdf
+│   │       Tanta-Stadium-AZ-INV-2025-0128.pdf
+│   │       
+│   ├───reviews
+│   └───users
+├───files
+│       setup-volume-storage.sh
+│       
+├───logs
+│       .gitkeep
+│       
+├───public
+│   │   dashboard.html
+│   │   index.html
+│   │   
+│   ├───assets
+│   ├───css
+│   │       alazab.css
+│   │       
+│   ├───images
+│   │       alazab-ar.jpg
+│   │       alazab-bg.png
+│   │       alazab-en.jpg
+│   │       alazab-icon.png
+│   │       android-chrome.png
+│   │       apple-icon.png
+│   │       apple-touch-icon.png
+│   │       azab-stamp.png
+│   │       cr.jpg
+│   │       favicon-16.png
+│   │       favicon-32.png
+│   │       favicon.ico
+│   │       logo-512.png
+│   │       logo-alazab.gif
+│   │       logo-b.png
+│   │       logo-w.png
+│   │       segin.png
+│   │       
+│   └───js
+│           api.js
+│           auth.js
+│           dashboard.js
+│           
+├───scripts
+│       init-system.js
+│       
+└───uploads
+    │   .gitkeep
+    │   
+    ├───projects
+    │   ├───inv
+    │   │       Invoice-AZ-INV-2025-0125.pdf
+    │   │       Invoice-AZ-INV-2025-0128.pdf
+    │   │       Invoice-AZ-INV-2025-0131.pdf
+    │   │       Invoice-AZ-INV-2025-0141.pdf
+    │   │       Invoice-AZ-INV-2025-0142.pdf
+    │   │       Invoice-AZ-INV-2025-0143.pdf
+    │   │       Invoice-AZ-INV-2025-0145.pdf
+    │   │       Invoice-AZ-INV-2025-0146.pdf
+    │   │       Invoice-AZ-INV-2025-0147.pdf
+    │   │       
+    │   ├───rec
+    │   │       Receipt-AZ-INV-2025-0125.pdf
+    │   │       Receipt-AZ-INV-2025-0128.pdf
+    │   │       Receipt-AZ-INV-2025-0131.pdf
+    │   │       Receipt-AZ-INV-2025-0141.pdf
+    │   │       Receipt-AZ-INV-2025-0142.pdf
+    │   │       Receipt-AZ-INV-2025-0143.pdf
+    │   │       Receipt-AZ-INV-2025-0145.pdf
+    │   │       Receipt-AZ-INV-2025-0146.pdf
+    │   │       Receipt-AZ-INV-2025-0147.pdf
+    │   │       
+    │   └───tax
+    │       ├───inv-html
+    │       │       AZ-INV-2025-0125.html
+    │       │       AZ-INV-2025-0128.html
+    │       │       AZ-INV-2025-0131.html
+    │       │       AZ-INV-2025-0141.html
+    │       │       AZ-INV-2025-0142.html
+    │       │       AZ-INV-2025-0143.html
+    │       │       AZ-INV-2025-0145.html
+    │       │       AZ-INV-2025-0146.html
+    │       │       AZ-INV-2025-0147.html
+    │       │       
+    │       └───inv-pdf
+    │               AZ-INV-2025-0125.pdf
+    │               AZ-INV-2025-0128.pdf
+    │               AZ-INV-2025-0131.pdf
+    │               AZ-INV-2025-0141.pdf
+    │               AZ-INV-2025-0142.pdf
+    │               AZ-INV-2025-0143.pdf
+    │               AZ-INV-2025-0145.pdf
+    │               AZ-INV-2025-0146.pdf
+    │               AZ-INV-2025-0147.pdf
+    │               
+    ├───report
+    │       AZ-ACC-REP-AUF.pdf
+    │       AZ-ACC-REP-SEVEN-FORTUNES.pdf
+    │       AZ-REP-AUF.pdf
+    │       
+    └───signed-documents

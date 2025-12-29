@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | Alazab Invoices Hub</title>
+    <link rel="icon" href="https://al-azab.co/logo/favicon.png">
+    <link rel="stylesheet" href="/css/alazab.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a5f7a 0%, #159895 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-box {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 50px 40px;
+            max-width: 450px;
+            width: 100%;
+            animation: az-slideInUp 0.5s;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-container img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 15px;
+        }
+        
+        .logo-container h1 {
+            color: var(--az-primary);
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .logo-container p {
+            color: var(--az-gray);
+            font-size: 14px;
+        }
+        
+        .demo-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--az-gray-lightest);
+            border-radius: 12px;
+        }
+        
+        .demo-section h3 {
+            font-size: 16px;
+            color: var(--az-dark);
+            margin-bottom: 15px;
+        }
+        
+        .demo-user {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .demo-user:hover {
+            border-color: var(--az-primary);
+            transform: translateX(-5px);
+        }
+        
+        .demo-user strong {
+            display: block;
+            color: var(--az-dark);
+            margin-bottom: 4px;
+        }
+        
+        .demo-user span {
+            font-size: 13px;
+            color: var(--az-gray);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <div class="logo-container">
+            <img src="https://al-azab.co/logo/logo-512.png" alt="الأعزب">
+            <h1>Alazab Hub</h1>
+            <p>نظام إدارة المشروعات والفواتير</p>
+        </div>
+        
+        <div id="alert" class="az-alert" style="display: none;"></div>
+        
+        <form id="loginForm">
+            <div class="az-form-group">
+                <label class="az-label">اسم المستخدم</label>
+                <input type="text" id="username" class="az-input" required autofocus>
+            </div>
+            
+            <div class="az-form-group">
+                <label class="az-label">كلمة المرور</label>
+                <input type="password" id="password" class="az-input" required>
+            </div>
+            
+            <button type="submit" class="az-btn az-btn-primary az-btn-block az-btn-lg">
+                🔐 تسجيل الدخول
+            </button>
+        </form>
+        
+        <div class="demo-section">
+            <h3>👥 حسابات تجريبية</h3>
+            
+            <div class="demo-user" onclick="fillLogin('admin', 'admin123')">
+                <strong>👑 المدير العام</strong>
+                <span>admin / admin123</span>
+            </div>
+            
+            <div class="demo-user" onclick="fillLogin('eng_manager', 'eng123')">
+                <strong>🏗️ مدير الهندسة</strong>
+                <span>eng_manager / eng123</span>
+            </div>
+            
+            <div class="demo-user" onclick="fillLogin('acc_manager', 'acc123')">
+                <strong>💰 مدير الحسابات</strong>
+                <span>acc_manager / acc123</span>
+            </div>
+            
+            <div class="demo-user" onclick="fillLogin('pur_manager', 'pur123')">
+                <strong>📦 مدير المشتريات</strong>
+                <span>pur_manager / pur123</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fillLogin(username, password) {
+            document.getElementById('username').value = username;
+            document.getElementById('password').value = password;
+        }
+        
+        function showAlert(message, type = 'danger') {
+            const alert = document.getElementById('alert');
+            alert.textContent = message;
+            alert.className = `az-alert az-alert-${type}`;
+            alert.style.display = 'flex';
+            
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 5000);
+        }
+        
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const btn = e.target.querySelector('button');
+            
+            btn.disabled = true;
+            btn.textContent = '⏳ جاري تسجيل الدخول...';
+            
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(data.error || 'فشل تسجيل الدخول');
+                }
+                
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
+                
+                showAlert('✅ تم تسجيل الدخول بنجاح', 'success');
+                
+                setTimeout(() => {
+                    window.location.href = '/dashboard.html';
+                }, 1000);
+                
+            } catch (error) {
+                showAlert(error.message);
+                btn.disabled = false;
+                btn.textContent = '🔐 تسجيل الدخول';
+            }
+        });
+    </script>
+</body>
+</html>

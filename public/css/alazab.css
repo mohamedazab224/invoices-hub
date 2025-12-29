@@ -1,0 +1,582 @@
+/**
+ * ═══════════════════════════════════════════════════════════
+ * Alazab Design System - نظام التصميم الموحد للأعزب
+ * ═══════════════════════════════════════════════════════════
+ * 
+ * الفلسفة: تجربة مستخدم رائعة - المستخدم يعشق التطبيق
+ * التصميم: احترافي، سلس، سريع، جميل
+ */
+
+/* ═══════════════════════════════════════════════════════════
+   المتغيرات الأساسية - Alazab Brand Colors
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ألوان الأعزب الرئيسية */
+  --az-primary: #1a5f7a;
+  --az-primary-dark: #14495e;
+  --az-primary-light: #2c7a9a;
+  
+  --az-secondary: #159895;
+  --az-secondary-dark: #117371;
+  --az-secondary-light: #1eb3b0;
+  
+  --az-accent: #57c785;
+  --az-accent-dark: #45a06a;
+  --az-accent-light: #6fd99b;
+  
+  /* ألوان الحالات */
+  --az-success: #28a745;
+  --az-success-light: #d4edda;
+  --az-warning: #ffa500;
+  --az-warning-light: #fff3cd;
+  --az-danger: #f05454;
+  --az-danger-light: #f8d7da;
+  --az-info: #17a2b8;
+  --az-info-light: #d1ecf1;
+  
+  /* ألوان محايدة */
+  --az-dark: #2c3e50;
+  --az-dark-2: #34495e;
+  --az-gray: #6c757d;
+  --az-gray-light: #adb5bd;
+  --az-gray-lighter: #dee2e6;
+  --az-gray-lightest: #f8f9fa;
+  --az-light: #ffffff;
+  
+  /* الخطوط */
+  --az-font-family: 'Segoe UI', Tahoma, 'Cairo', Arial, sans-serif;
+  --az-font-size-base: 16px;
+  --az-font-size-sm: 14px;
+  --az-font-size-lg: 18px;
+  --az-font-size-xl: 24px;
+  
+  /* المسافات */
+  --az-spacing-xs: 4px;
+  --az-spacing-sm: 8px;
+  --az-spacing-md: 16px;
+  --az-spacing-lg: 24px;
+  --az-spacing-xl: 32px;
+  --az-spacing-xxl: 48px;
+  
+  /* الظلال */
+  --az-shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+  --az-shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+  --az-shadow-lg: 0 10px 30px rgba(0,0,0,0.2);
+  --az-shadow-xl: 0 20px 60px rgba(0,0,0,0.3);
+  
+  /* الانتقالات */
+  --az-transition-fast: 0.15s ease;
+  --az-transition-base: 0.3s ease;
+  --az-transition-slow: 0.5s ease;
+  
+  /* الحواف المدورة */
+  --az-radius-sm: 4px;
+  --az-radius-md: 8px;
+  --az-radius-lg: 12px;
+  --az-radius-xl: 16px;
+  --az-radius-full: 9999px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   إعادة تعيين أساسية
+   ═══════════════════════════════════════════════════════════ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--az-font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--az-font-family);
+  color: var(--az-dark);
+  background: var(--az-gray-lightest);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: rtl;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   الطباعة
+   ═══════════════════════════════════════════════════════════ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--az-dark);
+  line-height: 1.3;
+  margin-bottom: var(--az-spacing-md);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: var(--az-spacing-md);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--az-primary);
+  text-decoration: none;
+  transition: color var(--az-transition-fast);
+}
+
+a:hover {
+  color: var(--az-primary-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   الأزرار - Buttons
+   ═══════════════════════════════════════════════════════════ */
+
+.az-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--az-spacing-sm);
+  padding: 12px 24px;
+  font-size: var(--az-font-size-base);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--az-radius-md);
+  cursor: pointer;
+  transition: all var(--az-transition-base);
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.az-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--az-shadow-md);
+}
+
+.az-btn:active {
+  transform: translateY(0);
+}
+
+.az-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* أنواع الأزرار */
+.az-btn-primary {
+  background: linear-gradient(135deg, var(--az-primary) 0%, var(--az-primary-dark) 100%);
+  color: var(--az-light);
+}
+
+.az-btn-secondary {
+  background: linear-gradient(135deg, var(--az-secondary) 0%, var(--az-secondary-dark) 100%);
+  color: var(--az-light);
+}
+
+.az-btn-success {
+  background: linear-gradient(135deg, var(--az-success) 0%, #20873a 100%);
+  color: var(--az-light);
+}
+
+.az-btn-danger {
+  background: linear-gradient(135deg, var(--az-danger) 0%, #c03a3a 100%);
+  color: var(--az-light);
+}
+
+.az-btn-warning {
+  background: linear-gradient(135deg, var(--az-warning) 0%, #e69500 100%);
+  color: var(--az-light);
+}
+
+.az-btn-outline {
+  background: transparent;
+  border: 2px solid var(--az-primary);
+  color: var(--az-primary);
+}
+
+.az-btn-outline:hover {
+  background: var(--az-primary);
+  color: var(--az-light);
+}
+
+.az-btn-ghost {
+  background: transparent;
+  color: var(--az-primary);
+}
+
+.az-btn-ghost:hover {
+  background: var(--az-gray-lightest);
+}
+
+/* أحجام الأزرار */
+.az-btn-sm {
+  padding: 8px 16px;
+  font-size: var(--az-font-size-sm);
+}
+
+.az-btn-lg {
+  padding: 16px 32px;
+  font-size: var(--az-font-size-lg);
+}
+
+.az-btn-block {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   نماذج الإدخال - Forms
+   ═══════════════════════════════════════════════════════════ */
+
+.az-form-group {
+  margin-bottom: var(--az-spacing-lg);
+}
+
+.az-label {
+  display: block;
+  font-weight: 600;
+  color: var(--az-dark);
+  margin-bottom: var(--az-spacing-sm);
+  font-size: var(--az-font-size-sm);
+}
+
+.az-input,
+.az-textarea,
+.az-select {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--az-font-family);
+  font-size: var(--az-font-size-base);
+  color: var(--az-dark);
+  background: var(--az-light);
+  border: 2px solid var(--az-gray-lighter);
+  border-radius: var(--az-radius-md);
+  transition: all var(--az-transition-fast);
+}
+
+.az-input:focus,
+.az-textarea:focus,
+.az-select:focus {
+  outline: none;
+  border-color: var(--az-primary);
+  box-shadow: 0 0 0 3px rgba(26, 95, 122, 0.1);
+}
+
+.az-input:disabled,
+.az-textarea:disabled,
+.az-select:disabled {
+  background: var(--az-gray-lightest);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.az-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.az-input-error {
+  border-color: var(--az-danger);
+}
+
+.az-input-error:focus {
+  box-shadow: 0 0 0 3px rgba(240, 84, 84, 0.1);
+}
+
+.az-error-message {
+  color: var(--az-danger);
+  font-size: var(--az-font-size-sm);
+  margin-top: var(--az-spacing-xs);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   البطاقات - Cards
+   ═══════════════════════════════════════════════════════════ */
+
+.az-card {
+  background: var(--az-light);
+  border-radius: var(--az-radius-lg);
+  box-shadow: var(--az-shadow-sm);
+  overflow: hidden;
+  transition: all var(--az-transition-base);
+}
+
+.az-card:hover {
+  box-shadow: var(--az-shadow-md);
+  transform: translateY(-2px);
+}
+
+.az-card-header {
+  padding: var(--az-spacing-lg);
+  background: linear-gradient(135deg, var(--az-primary) 0%, var(--az-primary-dark) 100%);
+  color: var(--az-light);
+  font-weight: 600;
+}
+
+.az-card-body {
+  padding: var(--az-spacing-lg);
+}
+
+.az-card-footer {
+  padding: var(--az-spacing-lg);
+  background: var(--az-gray-lightest);
+  border-top: 1px solid var(--az-gray-lighter);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   التنبيهات - Alerts
+   ═══════════════════════════════════════════════════════════ */
+
+.az-alert {
+  padding: var(--az-spacing-md) var(--az-spacing-lg);
+  border-radius: var(--az-radius-md);
+  margin-bottom: var(--az-spacing-lg);
+  border-right: 4px solid;
+  display: flex;
+  align-items: center;
+  gap: var(--az-spacing-md);
+}
+
+.az-alert-success {
+  background: var(--az-success-light);
+  color: var(--az-success);
+  border-color: var(--az-success);
+}
+
+.az-alert-danger {
+  background: var(--az-danger-light);
+  color: var(--az-danger);
+  border-color: var(--az-danger);
+}
+
+.az-alert-warning {
+  background: var(--az-warning-light);
+  color: #856404;
+  border-color: var(--az-warning);
+}
+
+.az-alert-info {
+  background: var(--az-info-light);
+  color: #0c5460;
+  border-color: var(--az-info);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   الشارات - Badges
+   ═══════════════════════════════════════════════════════════ */
+
+.az-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: var(--az-font-size-sm);
+  font-weight: 600;
+  border-radius: var(--az-radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.az-badge-success { background: var(--az-success-light); color: var(--az-success); }
+.az-badge-danger { background: var(--az-danger-light); color: var(--az-danger); }
+.az-badge-warning { background: var(--az-warning-light); color: #856404; }
+.az-badge-info { background: var(--az-info-light); color: #0c5460; }
+.az-badge-primary { background: #d4e6ef; color: var(--az-primary); }
+
+/* ═══════════════════════════════════════════════════════════
+   الجداول - Tables
+   ═══════════════════════════════════════════════════════════ */
+
+.az-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--az-light);
+  border-radius: var(--az-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--az-shadow-sm);
+}
+
+.az-table thead {
+  background: linear-gradient(135deg, var(--az-dark) 0%, var(--az-dark-2) 100%);
+  color: var(--az-light);
+}
+
+.az-table th {
+  padding: var(--az-spacing-md);
+  text-align: right;
+  font-weight: 600;
+  font-size: var(--az-font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.az-table td {
+  padding: var(--az-spacing-md);
+  border-bottom: 1px solid var(--az-gray-lighter);
+}
+
+.az-table tbody tr {
+  transition: background var(--az-transition-fast);
+}
+
+.az-table tbody tr:hover {
+  background: var(--az-gray-lightest);
+}
+
+.az-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   التحميل - Loading
+   ═══════════════════════════════════════════════════════════ */
+
+.az-spinner {
+  border: 4px solid var(--az-gray-lighter);
+  border-top: 4px solid var(--az-primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: az-spin 1s linear infinite;
+}
+
+@keyframes az-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.az-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--az-spacing-md);
+  padding: var(--az-spacing-xxl);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   المساعدات - Utilities
+   ═══════════════════════════════════════════════════════════ */
+
+/* النصوص */
+.az-text-center { text-align: center; }
+.az-text-right { text-align: right; }
+.az-text-left { text-align: left; }
+
+.az-text-primary { color: var(--az-primary); }
+.az-text-success { color: var(--az-success); }
+.az-text-danger { color: var(--az-danger); }
+.az-text-warning { color: var(--az-warning); }
+.az-text-gray { color: var(--az-gray); }
+
+.az-text-sm { font-size: var(--az-font-size-sm); }
+.az-text-base { font-size: var(--az-font-size-base); }
+.az-text-lg { font-size: var(--az-font-size-lg); }
+.az-text-xl { font-size: var(--az-font-size-xl); }
+
+.az-font-bold { font-weight: 700; }
+.az-font-semibold { font-weight: 600; }
+.az-font-normal { font-weight: 400; }
+
+/* الخلفيات */
+.az-bg-primary { background: var(--az-primary); color: var(--az-light); }
+.az-bg-secondary { background: var(--az-secondary); color: var(--az-light); }
+.az-bg-light { background: var(--az-gray-lightest); }
+.az-bg-white { background: var(--az-light); }
+
+/* المسافات */
+.az-m-0 { margin: 0; }
+.az-mt-1 { margin-top: var(--az-spacing-sm); }
+.az-mt-2 { margin-top: var(--az-spacing-md); }
+.az-mt-3 { margin-top: var(--az-spacing-lg); }
+.az-mb-1 { margin-bottom: var(--az-spacing-sm); }
+.az-mb-2 { margin-bottom: var(--az-spacing-md); }
+.az-mb-3 { margin-bottom: var(--az-spacing-lg); }
+
+.az-p-0 { padding: 0; }
+.az-p-1 { padding: var(--az-spacing-sm); }
+.az-p-2 { padding: var(--az-spacing-md); }
+.az-p-3 { padding: var(--az-spacing-lg); }
+
+/* العرض */
+.az-flex { display: flex; }
+.az-flex-center { display: flex; align-items: center; justify-content: center; }
+.az-flex-between { display: flex; align-items: center; justify-content: space-between; }
+.az-flex-column { flex-direction: column; }
+.az-gap-1 { gap: var(--az-spacing-sm); }
+.az-gap-2 { gap: var(--az-spacing-md); }
+.az-gap-3 { gap: var(--az-spacing-lg); }
+
+.az-grid { display: grid; }
+.az-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.az-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.az-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* الظلال */
+.az-shadow-sm { box-shadow: var(--az-shadow-sm); }
+.az-shadow-md { box-shadow: var(--az-shadow-md); }
+.az-shadow-lg { box-shadow: var(--az-shadow-lg); }
+
+/* الحواف المدورة */
+.az-rounded-sm { border-radius: var(--az-radius-sm); }
+.az-rounded { border-radius: var(--az-radius-md); }
+.az-rounded-lg { border-radius: var(--az-radius-lg); }
+.az-rounded-full { border-radius: var(--az-radius-full); }
+
+/* ═══════════════════════════════════════════════════════════
+   Responsive Design
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  :root {
+    --az-font-size-base: 14px;
+    --az-spacing-md: 12px;
+    --az-spacing-lg: 20px;
+  }
+  
+  .az-grid-2,
+  .az-grid-3,
+  .az-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .az-btn {
+    padding: 10px 20px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   الرسوم المتحركة
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes az-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes az-slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.az-fade-in {
+  animation: az-fadeIn var(--az-transition-base);
+}
+
+.az-slide-in-up {
+  animation: az-slideInUp var(--az-transition-base);
+}

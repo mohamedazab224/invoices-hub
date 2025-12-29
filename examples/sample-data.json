@@ -1,0 +1,29 @@
+{
+  "note": "هذه بيانات تجريبية للتوضيح فقط",
+  "users": [
+    {
+      "id": "user-001",
+      "username": "admin",
+      "role": "admin",
+      "email": "admin@example.com",
+      "password": "$2b$10$..."
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-001",
+      "name": "مشروع تجريبي",
+      "client": "عميل تجريبي",
+      "status": "active"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "inv-001",
+      "invoiceNumber": "AZ-INV-DEMO-0001",
+      "client": "عميل تجريبي",
+      "total": 10000,
+      "status": "pending"
+    }
+  ]
+}
